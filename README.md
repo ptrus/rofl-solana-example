@@ -24,7 +24,7 @@ A live deployment is running on testnet with app ID `rofl1qzzzlecmh0m5lc8kjz0n2y
 You can inspect the running app using the [Oasis CLI](https://github.com/oasisprotocol/cli) or the [ROFL Registry](https://github.com/ptrus/rofl-registry) tool:
 
 ```bash
-oasis rofl show rofl1qzzzlecmh0m5lc8kjz0n2y7xjp9nj64gyu2q88hp
+oasis rofl show rofl1qzzzlecmh0m5lc8kjz0n2y7xjp9nj64gyu2q88hp --network testnet
 ```
 
 The attested Solana wallet address generated inside the enclave is published in the instance metadata. If the app has active replicas, you'll see the metadata in the output above, including:

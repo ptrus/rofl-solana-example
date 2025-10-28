@@ -38,7 +38,7 @@ deployments:
         - id: /Sl0BZ2ogAKyxpyR6YUAkMSBa43n38VYEaDK6AltSMcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
         - id: k1wGu1PSdsa+IxZ0n2/m6A123vG0TyYuHTvGyJv57i8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       endorsements:
-        - any: {}
+        - provider_instance_admin: oasis1qzql9cw9ly746jren7j66jscd36h5c3mfq6d6mct
       fees: endorsing_node
       max_expiration: 3
     machines:
