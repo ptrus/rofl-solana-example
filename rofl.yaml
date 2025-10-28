@@ -1,0 +1,48 @@
+name: rofl-solana-example
+version: 0.1.0
+repository: https://github.com/ptrus/rofl-solana-example
+author: Peter Us <peter@u-s.si>
+description: Solana interactions example.
+tee: tdx
+kind: container
+resources:
+  memory: 1024
+  cpus: 1
+  storage:
+    kind: disk-persistent
+    size: 1024
+artifacts:
+  firmware: https://github.com/oasisprotocol/oasis-boot/releases/download/v0.6.2/ovmf.tdx.fd#db47100a7d6a0c1f6983be224137c3f8d7cb09b63bb1c7a5ee7829d8e994a42f
+  kernel: https://github.com/oasisprotocol/oasis-boot/releases/download/v0.6.2/stage1.bin#e5d4d654ca1fa2c388bf64b23fc6e67815893fc7cb8b7cfee253d87963f54973
+  stage2: https://github.com/oasisprotocol/oasis-boot/releases/download/v0.6.2/stage2-podman.tar.bz2#b2ea2a0ca769b6b2d64e3f0c577ee9c08f0bb81a6e33ed5b15b2a7e50ef9a09f
+  container:
+    runtime: https://github.com/oasisprotocol/oasis-sdk/releases/download/rofl-containers%2Fv0.8.2/rofl-containers#e9589c9cb68aee146a61ceefcce749ef5a391258dd26dc3037027733d883839f
+    compose: compose.yaml
+deployments:
+  default:
+    app_id: rofl1qzzzlecmh0m5lc8kjz0n2y7xjp9nj64gyu2q88hp
+    network: testnet
+    paratime: sapphire
+    admin: ptrus
+    oci_repository: rofl.sh/54699ba7-3c32-47de-841a-6781544fb12d:1761647823
+    trust_root:
+      height: 29075089
+      hash: 263d50dd813e713add16ffc54b534c4343249c27fb6ccd5c7b710f7bd82cf643
+    policy:
+      quotes:
+        pcs:
+          tcb_validity_period: 30
+          min_tcb_evaluation_data_number: 18
+          tdx: {}
+      enclaves:
+        - id: /Sl0BZ2ogAKyxpyR6YUAkMSBa43n38VYEaDK6AltSMcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        - id: k1wGu1PSdsa+IxZ0n2/m6A123vG0TyYuHTvGyJv57i8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      endorsements:
+        - any: {}
+      fees: endorsing_node
+      max_expiration: 3
+    machines:
+      default:
+        provider: oasis1qp2ens0hsp7gh23wajxa4hpetkdek3swyyulyrmz
+        offer: playground_short
+        id: 00000000000003a9

@@ -1,0 +1,7 @@
+services:
+  solana-app:
+    build: app
+    image: "docker.io/ptrusr/rofl-solana-example@sha256:f504e525a704776fdd3df4246372edd3649f2f132905ff4d07e0693812f8adf4"
+    platform: linux/amd64
+    volumes:
+      - /run/rofl-appd.sock:/run/rofl-appd.sock
