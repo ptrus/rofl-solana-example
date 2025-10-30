@@ -11,6 +11,7 @@ The app creates an **encumbered wallet** inside the ROFL enclave:
 - Wallet address is published in instance metadata for transparency
 - Monitors Solana testnet for incoming transactions every minute
 - Randomly selects one sender and returns most of the balance (keeping 5000 lamports for fees)
+- **The selection algorithm can be independently verified by anyone** - the code running in the enclave is verifiable, ensuring transparency and trust
 
 **For production use**, this example should be extended with:
 
@@ -28,6 +29,21 @@ You can inspect the running app using the [Oasis CLI](https://github.com/oasispr
 ```bash
 oasis rofl show rofl1qzzzlecmh0m5lc8kjz0n2y7xjp9nj64gyu2q88hp --network testnet
 ```
+
+You can also verify that the code running in the enclave matches this repository by running:
+
+```bash
+oasis rofl build --verify
+```
+
+This builds the application reproducibly and verifies that the enclave identity matches what's deployed on-chain. If successful, you'll see:
+
+```
+Built enclave identities MATCH latest manifest enclave identities.
+Manifest enclave identities MATCH on-chain enclave identities.
+```
+
+This allows anyone to independently verify the selection algorithm and ensure the deployed code is trustworthy.
 
 The attested Solana wallet address generated inside the enclave is published in the instance metadata. If the app has active replicas, you'll see the metadata in the output above, including:
 
