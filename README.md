@@ -14,7 +14,9 @@ The app creates an **encumbered wallet** inside the ROFL enclave:
 
 **For production use**, this example should be extended with:
 
-- **State persistence**: Poll for all transactions reliably and store the last processed transaction state on-chain (e.g., using Oasis Sapphire) to survive restarts and ensure exactly-once processing.
+- **State persistence**: Store the last processed transaction state on-chain (e.g., using Oasis Sapphire) to survive restarts and ensure exactly-once processing.
+- **Local Solana client**: Run a local Solana validator or light client inside the enclave instead of relying on remote RPC endpoints, which could provide incorrect data or censor transactions.
+- **Enhanced key security**: Consider storing the encumbered wallet's private key on Oasis Sapphire smart contract, accessible only by authorized ROFL instances, or use a multi-sig wallet with keys split across multiple ROFL replicas requiring consensus before executing transactions.
 - **Reproducible builds**: Make the Dockerfile reproducible so it can be verified off-chain using the `oasis rofl build --verify` command, allowing anyone to independently verify that the deployed code matches the source code. See the [ROFL build documentation](https://docs.oasis.io/build/tools/cli/rofl#build) for details.
 
 ## Live Example
